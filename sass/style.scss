@@ -1,3 +1,76 @@
+@import "base_folder/base.scss";
+@import "variables.scss";
+
 body{
-  background-color: #349db;
+  background-color: $primaryColour;
+}
+
+@mixin boxSize{
+  width: $width;
+  height: 100px;
+  // float: left;
+  margin: 0;
+  padding: 10px;
+  color: green;
+
+}
+
+#box1{
+  @include boxSize;
+  background-color: #8e44ad;
+}
+
+#box2{
+  @include boxSize;
+  background-color: #3e48ad;
+}
+#box3{
+  @include boxSize;
+  background-color: #5e45ad;
+}
+#box4{
+  @include boxSize;
+  background-color: #1e45ad;
+}
+header{
+  background-color: darken($primaryColour, 10%) ;
+  nav{
+    ul{
+      list-style: none;
+      text-align: center;
+      li{
+        display: inline-block;
+        color: blue;
+        padding: 1em;
+
+      }
+    }
+  }
+}
+
+footer{
+  background-color: lighten($primaryColour, 10%);
+  nav{
+    ul{
+      list-style: none;
+      text-align: right;
+      li{  display: inline-block;
+        color: blue;
+        padding: 1em;
+
+      }
+    }
+  }
+}
+
+h1{
+  color: compliment($primaryColour);
+}
+
+$boxCount : 4;
+@for $i from 1 through $boxCount{
+    #box#{$i}{
+      width: $width * $i;
+      height: 100px;
+    }
 }
